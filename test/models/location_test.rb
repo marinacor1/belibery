@@ -45,4 +45,26 @@ class LocationTest < ActiveSupport::TestCase
     assert result.invalid?
   end
 
+  test "it will not create a city with repetition inside a scope" do
+    result = Location.create(
+      city: "Bloomington",
+      state: "IL",
+      country: "USA"
+    )
+    result2 = Location.new(
+      city: "Bloomington",
+      state: "IN",
+      country: "USA"
+    )
+    result3 = Location.new(
+      city: "Bloomington",
+      state: "IL",
+      country: "USA"
+    )
+
+    assert result.valid?
+    assert result2.valid?
+    assert result3.invalid?
+  end
+
 end
