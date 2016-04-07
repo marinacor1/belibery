@@ -51,7 +51,6 @@ end
       name:               "Richard",
       email:              "richard@example.com"
       )
-
     refute fan.valid?
     assert_includes fan.errors.full_messages, "Name cannot be Richard"
 
