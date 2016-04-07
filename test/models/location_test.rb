@@ -67,4 +67,22 @@ class LocationTest < ActiveSupport::TestCase
     assert result3.invalid?
   end
 
+  test "it will only creates two letters" do
+    result1 = Location.new(
+      city: "Bloomington",
+      state: "IN",
+      country: "USA"
+    )
+    result3 = Location.new(
+      city: "Bloomington",
+      state: "Indiana",
+      country: "USA"
+    )
+
+    assert result1.valid?
+    refute result3.valid?
+end
+
+
+
 end
