@@ -17,4 +17,8 @@ class Fan < ActiveRecord::Base
   end
                     # validates_presence_of :name, :email
   # validates: name, presence: true
+
+    def nickname
+    "#{name}lieber"
+  end
 end

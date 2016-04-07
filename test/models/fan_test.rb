@@ -55,4 +55,10 @@ end
     assert_includes fan.errors.full_messages, "Name cannot be Richard"
 
   end
+
+  test "it has a beliber nickname" do
+    fan = Fan.create(valid_attributes)
+
+    assert_equal "Jorgelieber", fan.nickname
+  end
 end
