@@ -126,13 +126,13 @@ end
       country: "USA"
     )
 
-  assert result1.invalid?
-  assert result2.invalid?
-  assert result3.invalid?
-  assert result4.invalid?
-  assert result5.valid?
-  assert result6.valid?
-  assert result7.valid?
+    assert result1.invalid?
+    assert result2.invalid?
+    assert result3.invalid?
+    assert result4.invalid?
+    assert result5.valid?
+    assert result6.valid?
+    assert result7.valid?
   end
 
 end

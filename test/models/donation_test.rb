@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class DonationTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "it creates donations only if they are whole numbers" do
+    
+
+  end
 end

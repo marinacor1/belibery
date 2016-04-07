@@ -1,4 +1,5 @@
 class Fan < ActiveRecord::Base
+  belongs_to :location
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   validates :name,  presence:   true,

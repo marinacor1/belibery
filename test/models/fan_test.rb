@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class FanTest < ActiveSupport::TestCase
+  should belong_to(:location)
+  
   def valid_attributes
       {
         name:               "Jorge",
