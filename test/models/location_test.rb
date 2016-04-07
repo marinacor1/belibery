@@ -73,6 +73,11 @@ class LocationTest < ActiveSupport::TestCase
       state: "IN",
       country: "USA"
     )
+    result2 = Location.new(
+      city: "Bloomington",
+      state: "N",
+      country: "USA"
+    )
     result3 = Location.new(
       city: "Bloomington",
       state: "Indiana",
@@ -80,9 +85,54 @@ class LocationTest < ActiveSupport::TestCase
     )
 
     assert result1.valid?
+    refute result2.valid?
     refute result3.valid?
 end
 
+  test "it will not accept cities or state with special characters" do
+    result1 = Location.new(
+      city: "!Bloomington",
+      state: "IN",
+      country: "USA"
+    )
+    result2 = Location.new(
+      city: "Bl2oomington",
+      state: "Indiana",
+      country: "USA"
+    )
+    result3 = Location.new(
+      city: "Bloomington",
+      state: "Indi@ana",
+      country: "USA"
+    )
+    result4 = Location.new(
+      city: "Bloomington",
+      state: "India2na",
+      country: "USA"
+    )
+    result5 = Location.new(
+      city: "bloomington",
+      state: "In",
+      country: "USA"
+    )
+    result6 = Location.new(
+      city: "Bloomington",
+      state: "in",
+      country: "USA"
+    )
+    result7 = Location.new(
+      city: "Bl oomington",
+      state: "in",
+      country: "USA"
+    )
 
+  assert result1.invalid?
+  assert result2.invalid?
+  assert result3.invalid?
+  assert result4.invalid?
+  assert result5.valid?
+  assert result6.valid?
+  assert result7.valid?
+  end
 
 end
