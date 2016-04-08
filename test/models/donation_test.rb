@@ -36,4 +36,18 @@ class DonationTest < ActiveSupport::TestCase
     assert result3.valid?
     assert result4.valid?
   end
+
+  test "it only accepts donations of over 1 dollar" do
+    result = Donation.new( {
+      amount: "1",
+      status: "pending"
+      })
+    result2 = Donation.new( {
+      amount: "10",
+      status: "pending"
+      })
+
+    # assert result.invalid?
+    assert result2.valid?
+  end
 end

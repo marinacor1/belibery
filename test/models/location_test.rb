@@ -135,5 +135,10 @@ end
     assert result7.valid?
   end
 
+  test "it returns the full name of a location" do
+    result = Location.create(valid_attributes)
+
+    assert_equal "Denver, CO, USA", Location.full_name(result)
+  end
 
 end

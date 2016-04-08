@@ -4,4 +4,7 @@ class Location < ActiveRecord::Base
   validates :state, length: { is: 2}
   validates :city, :state, format: { with: /\A[a-zA-Z ]+\z/, message: "only allows upppercase and lowercase letters"}
 
+  def self.full_name(location = params[:location])
+    full_location = "#{location.city}, #{location.state}, #{location.country}"
+  end
 end
